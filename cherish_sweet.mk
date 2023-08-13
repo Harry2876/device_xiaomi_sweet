@@ -12,20 +12,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/sweet/device.mk)
 
 # Inherit some common SkylineUI stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
 # Rom Specific Flags
-TARGET_INCLUDE_WIFI_EXT := true
+# Rom Specific Flags
+CHERISH_BUILD_TYPE := OFFICIAL
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_QUICK_TAP  := true
 
-# SkylineUI Maintainer Flags
-SKYLINEUI_MAINTAINER := NutellaDev
-CUSTOM_BUILD_TYPE := OFFICIAL
+# Cherish Maintainer Flags
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=Hariom
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := aosp_sweet
+PRODUCT_NAME := cherish_sweet
 PRODUCT_DEVICE := sweet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 10 Pro
